@@ -1,0 +1,65 @@
+{
+  "protocol": "Universal AI Work Protocol",
+  "version": "4.0",
+  "modes": {
+    "lite": {
+      "read": [
+        ".ai/HANDOFF.md"
+      ],
+      "update": [
+        ".ai/HANDOFF.md"
+      ]
+    },
+    "full": {
+      "read": [
+        ".ai/HANDOFF.md",
+        ".ai/STATE.md",
+        ".ai/TASKS.md",
+        ".ai/DECISIONS.md",
+        ".ai/MANIFEST.md"
+      ],
+      "update": [
+        ".ai/STATE.md",
+        ".ai/TASKS.md",
+        ".ai/HANDOFF.md",
+        ".ai/CHANGELOG.md",
+        ".ai/MANIFEST.md",
+        ".ai/DECISIONS.md"
+      ]
+    }
+  },
+  "task_statuses": [
+    "TODO",
+    "IN_PROGRESS",
+    "BLOCKED",
+    "DONE",
+    "VERIFIED"
+  ],
+  "handoff_files": [
+    "AI_INSTRUCTIONS.md",
+    ".ai/CONTEXT_POLICY.md",
+    ".ai/STATE.md",
+    ".ai/MANIFEST.md",
+    ".ai/TASKS.md",
+    ".ai/DECISIONS.md",
+    ".ai/CHANGELOG.md",
+    ".ai/HANDOFF.md"
+  ],
+  "limits": {
+    "handoff_words": 500,
+    "state_words": 700,
+    "changelog_entries_before_archive": 50
+  },
+  "write_rules": [
+    "stamp date and agent",
+    "merge do not overwrite",
+    "changelog append-only"
+  ],
+  "skills_registry": ".ai/skills/REGISTRY.json",
+  "skills_registry_schema_version": "4.0",
+  "data_policy": "Do not store secrets or personal sensitive information in handoff files",
+  "scope_policy": "Read only relevant source files; verify state; minimize changes",
+  "runtime": "scripts/workflow.py",
+  "run_states": ".ai/runs/<run_id>/",
+  "security": "Explicit approval for execution, integration and third-party skill installation"
+}

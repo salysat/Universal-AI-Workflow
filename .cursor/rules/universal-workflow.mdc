@@ -1,0 +1,5 @@
+---
+description: Cross-agent project continuity and minimal context workflow
+alwaysApply: true
+---
+Follow AGENTS.md and AI_INSTRUCTIONS.md. Choose Lite or Full mode. Read .ai/HANDOFF.md first, then task-relevant project records. Check for stale state. Scope reads and edits narrowly; stamp date+agent and merge, never overwrite, when updating .ai files. No automatic skill installation or untrusted code execution. For run-based work, use scripts/uw_context_guard.py brief/check/prompt: splitting tasks does not split the context window; one task per chat unless external CLI agents are launched.

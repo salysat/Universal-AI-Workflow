@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "agents": {
+    "local": {
+      "argv": [
+        "python",
+        "-c",
+        "print('SAFE DEMO - NO AI')"
+      ],
+      "timeout_seconds": 30
+    }
+  },
+  "roles": {
+    "architect": "local",
+    "developer": "local",
+    "tester": "local",
+    "reviewer": "local"
+  }
+}

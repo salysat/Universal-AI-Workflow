@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "agents": {
+    "demo-safe": {
+      "argv": ["python", "-c", "print('Demo agent: no code changes')"],
+      "timeout_seconds": 30
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "run_id": "demo",
+  "tasks": [
+    {
+      "id": "api",
+      "description": "Implement API endpoint",
+      "paths": [
+        "src/Api/"
+      ],
+      "acceptance": [
+        "API tests pass"
+      ]
+    },
+    {
+      "id": "ui",
+      "description": "Implement UI component",
+      "paths": [
+        "src/Web/"
+      ],
+      "acceptance": [
+        "UI tests pass"
+      ]
+    }
+  ]
+}

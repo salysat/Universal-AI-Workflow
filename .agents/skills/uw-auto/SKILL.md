@@ -1,0 +1,29 @@
+---
+name: uw-auto
+description: Auto (one word; self-instantiating)
+---
+# uw-auto — one word; the SAME assistant repeats itself
+
+Follow AGENTS.md. Do NOT ask the user for a plan, a mode, a run ID, a skill or an approval.
+
+**No external assistants by default.** Typing `uw-auto` is NOT permission to launch `codex exec`, `claude`, `gemini`, an API model or any other external CLI. The work is done by **multiple fresh instances of YOURSELF** — native subagents when your platform supports them, otherwise successive new chats. External CLI mode exists only for operators who explicitly enabled it in `uw-auto.config.json`.
+
+Step 1 — run exactly this first (add `--run NAME` / `--description "..."` only if the user supplied them):
+
+`python scripts/uw_autopilot.py boot`
+
+It auto-creates a safe config, auto-generates a plan from the repository, routes reviewed LOCAL skills, measures the context budget, writes `MISSION.md`, and writes one self-contained `SESSION-*.md` per ready task plus `SPAWN.md`. Read ONLY the compact JSON it prints (and MISSION.md). Never read full run state, reports or logs.
+
+Step 2 — act on `mode`:
+
+- **self** (native subagents available): run `python scripts/uw_autopilot.py spawn --run RUN`. Spawn ONE copy of yourself per session file (up to `parallel_sessions`). Give each copy **only the content of its own SESSION file** — never the parent conversation, never the big reports. Each copy has its own context, does ONE task, and returns at most 10 lines (command, exit code, changed files, evidence). When they return, run `tick` for each task, then `spawn` again for the next wave. This is exactly "the same assistant forms itself more than once".
+- **sessions** (no subagent support): open a NEW chat and paste the first SESSION file. When that instance finishes, run `tick`; it automatically writes the next SESSION file. Open another new chat with it. Typing `uw-auto` in each new chat auto-selects the next session with no questions. One task per chat = one fresh context = no token exhaustion.
+- **external**: only if `external_enabled`, `approve_agents`, `approve_worktrees` and a configured CLI are all set by the operator. Otherwise never call `run`.
+
+Step 3 — skills: `boot` / `spawn` return reviewed LOCAL skill files for each task. Every instance READS those files. Never download, install or auto-execute a skill; no network, no `npx skills add`.
+
+Step 4 — always: redirect build/test output to a file; report command + exit code + counts + last 5 lines. Evidence is ≤ 200 words plus a log path. Never claim tests passed, agents ran or code changed without observed evidence. Nothing is committed, merged, pushed or deployed.
+
+Honest limit: if the platform supports neither native subagents nor new chats, independent contexts cannot be created — say so plainly instead of pretending. The tool still bounds each task and writes the handoff.
+
+User arguments / request: $ARGUMENTS

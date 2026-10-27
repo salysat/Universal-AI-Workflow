@@ -1,0 +1,39 @@
+{
+  "schema_version": "4.0",
+  "field_notes": {
+    "review_status": "reference_only | pending_review | approved | rejected",
+    "approved_for_execution": "true only after REVIEW_CHECKLIST is complete AND the user approved",
+    "commit": "pinned git commit of the upstream source, or 'local-file' when vendored here",
+    "sha256": "hash of the SKILL.md as reviewed; if it differs, the review is void",
+    "permissions": "what the skill needs: network, shell, filesystem (none|read|write), secrets",
+    "triggers": "task phrases/types that justify using this skill",
+    "review_expires": "re-review on or before this date, or on any version change"
+  },
+  "skills": [
+    {
+      "id": "find-skills",
+      "path": "skills/find-skills/SKILL.md",
+      "source": "user-provided attachment (upstream: skills.sh ecosystem); modified locally in V3 to disable auto-install",
+      "type": "discovery-instructions",
+      "version": "unverified",
+      "commit": "local-file",
+      "sha256": "a412fa5a523311055f6a2e4b93f96715345cafca27a3efe40103160e62efc3c2",
+      "review_status": "reference_only",
+      "approved_for_execution": false,
+      "permissions": {
+        "network": true,
+        "shell": true,
+        "filesystem": "write (only if a skill is installed)",
+        "secrets": false
+      },
+      "triggers": [
+        "user asks to find/discover/install a skill",
+        "user asks 'is there a skill for X'"
+      ],
+      "reviewed_at": "2026-10-26",
+      "reviewed_by": "static read-through by an AI assistant; not a security audit; user approval pending",
+      "review_expires": "2027-01-24",
+      "notes": "Discovery guide only. Searching is allowed on user request; installation/execution requires separate source review and explicit approval of the exact command."
+    }
+  ]
+}

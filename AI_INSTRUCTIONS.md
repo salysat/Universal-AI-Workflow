@@ -1,0 +1,3 @@
+# Operational instructions V4
+
+The root `AGENTS.md` is the canonical short entrypoint. Follow project-specific implementation requirements and user instructions. Use Lite only for small self-contained tasks; Full for architectural change, migration or handoff. Check actual git state; stale summaries are not authoritative. For multi-agent: `scripts/workflow.py plan`, separate `worktree`s, human executed AI CLI per workspace, `complete`, reviewed `gate`, reviewed `integrate`, repeat tests. No automatic external AI launch or third-party installs. A `VERIFIED` task must reference real recorded command results and acceptance criteria. For conflict remediation, stop, inspect and ask rather than force. Limit retries and label blockers. Always protect private data.

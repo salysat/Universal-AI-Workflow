@@ -1,0 +1,3 @@
+Read AGENTS.md and .ai/STATE.md, inspect project structure only as necessary, verify tools and project changes. Describe safe next step; do not reinstall or overwrite existing project policy without approval. If workflow files are absent, ask for the GitHub repository URL or the files.
+
+User request: $ARGUMENTS

@@ -1,0 +1,7 @@
+---
+name: uw-audit
+description: Audit
+---
+Security audit workflow: import user-supplied JSON or SARIF with `python scripts/uw_audit.py --input report.json --run AUDIT_RUN --output audit-plan.json`. Review every finding and ownership scope before `python scripts/workflow.py plan --file audit-plan.json`. Never run an external scanner without explicit approval, and never claim audit findings are automatically repaired.
+
+User arguments: $ARGUMENTS

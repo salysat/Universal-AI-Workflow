@@ -1,0 +1,25 @@
+name: validate
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Python 3.10 TOML compatibility
+        if: matrix.python-version == '3.10'
+        run: python -m pip install "tomli>=2,<3"
+      - name: Display Python information
+        run: python -c "import sys,platform; print(sys.version); print(platform.platform())"
+      - run: python scripts/workflow.py validate
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/generate_commands.py --check

@@ -1,0 +1,9 @@
+{
+  "commands": [
+    {
+      "name": "python-check",
+      "command_id": "python-unittest",
+      "acceptance": ["API tests pass"]
+    }
+  ]
+}

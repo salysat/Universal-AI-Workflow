@@ -1,0 +1,11 @@
+{
+  "commands": [
+    {
+      "name": "python-version",
+      "argv": [
+        "python",
+        "--version"
+      ]
+    }
+  ]
+}

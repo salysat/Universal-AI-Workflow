@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "agents": {
+    "gemini": {
+      "argv": [
+        "gemini",
+        "--prompt",
+        "{prompt_file}"
+      ],
+      "prompt_transport": "file",
+      "timeout_seconds": 600
+    }
+  },
+  "roles": {
+    "architect": "gemini",
+    "developer": "gemini",
+    "tester": "gemini",
+    "reviewer": "gemini"
+  },
+  "_notice": "EXAMPLE ONLY. CLI arguments vary by installed version. Not tested against an authenticated provider."
+}

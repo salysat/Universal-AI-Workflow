@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "agents": {
+    "codex": {
+      "argv": [
+        "codex",
+        "exec",
+        "-"
+      ],
+      "prompt_transport": "stdin",
+      "timeout_seconds": 600
+    }
+  },
+  "roles": {
+    "architect": "codex",
+    "developer": "codex",
+    "tester": "codex",
+    "reviewer": "codex"
+  },
+  "_notice": "EXAMPLE ONLY. CLI arguments vary by installed version. Not tested against an authenticated provider."
+}

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "agents": {
+    "claude": {
+      "argv": [
+        "claude",
+        "--print",
+        "--output-format",
+        "json"
+      ],
+      "prompt_transport": "stdin",
+      "timeout_seconds": 600
+    }
+  },
+  "roles": {
+    "architect": "claude",
+    "developer": "claude",
+    "tester": "claude",
+    "reviewer": "claude"
+  },
+  "_notice": "EXAMPLE ONLY. CLI arguments vary by installed version. Not tested against an authenticated provider."
+}
